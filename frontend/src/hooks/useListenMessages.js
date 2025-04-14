@@ -7,8 +7,7 @@ const useListenMessages = () => {
 	const { socket } = useSocketContext();
 	const { messages, setMessages } = useSelectedConversation();
 	useEffect(() => {
-		socket?.on("newMessage", (newMessage) => {
-			console.log("New message received:", newMessage);	
+		socket?.on("newMessage", (newMessage) => {	
 			setMessages(prev => [...prev, newMessage]);
 			const sound=new Audio(notificationsound);
 			sound.play();
