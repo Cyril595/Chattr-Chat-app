@@ -1,6 +1,8 @@
- const logout=async ()=>{
+import axios from "axios";
+const logout=async ()=>{
     try {
-        await axios.post('http://localhost:5000/api/auth/logout')
+        await axios.post('http://localhost:5000/api/auth/logout', {}, { withCredentials: true });
+
     } catch (error) {
         console.log(error)
     }

@@ -1,13 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import logout from '../hooks/logout'; 
-
+import axios from 'axios';
+import { useAuthContext } from '../context/AuthContext';
 const Logout = () => {
   const navigate = useNavigate();
-
+ const {setAuthUser} = useAuthContext(); // Importing auth context to get user data
   const handleLogout = async () => {
     try {
       await logout();
+      localStorage.removeItem('authuser'); // Remove user data from local storage
+      setAuthUser(null);
       navigate('/');
     } catch (error) {
       console.error("Error logging out:", error);

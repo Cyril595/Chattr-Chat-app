@@ -34,9 +34,9 @@ const Messagebox = () => {
             >
               <p
                 className={`${
-                  message.senderId === selectedConversationId
-                    ? "bg-gray-200 text-black" // If the receiver is sending the message (receiver's message)
-                    : "bg-blue-500 text-white" // If the logged-in user is sending the message (sender's message)
+                  message.receiverId === selectedConversationId//
+                    ?  "bg-blue-500 text-white"// If the receiver is sending the message (receiver's message)
+                    : "bg-gray-200 text-black" // If the logged-in user is sending the message (sender's message)
                 } p-2 rounded-md max-w-[75%]`}
               >
                 {message.message}

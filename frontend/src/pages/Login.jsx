@@ -10,6 +10,7 @@ const Login = () => {
   const { setAuthUser } = useAuthContext();  // Access setAuthUser from context
   const navigate = useNavigate();  
 
+
   const handleSubmit = async (e) => {
     e.preventDefault(); 
 
@@ -17,6 +18,7 @@ const Login = () => {
 
     if (success) {
       setAuthUser(data); 
+      localStorage.setItem('authuser', JSON.stringify(data)); 
       navigate('/home');
     } else {
       setErrorMessage(message);  

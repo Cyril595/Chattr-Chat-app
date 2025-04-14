@@ -29,21 +29,25 @@ const Sendmessage = () => {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={m}
-        onChange={(e) => setM(e.target.value)} // Update message state as user types
-        placeholder="Type a message"
-        className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
-      <button
-        onClick={handleSend}
-        className="mt-2 px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
-      >
-        Send
-      </button>
-    </div>
+   <>
+    {selectedConversationId && (
+    <div className='flex items-center space-x-4 p-4 bg-gray-100 rounded-lg shadow-md'>
+    <input
+      type="text"
+      value={m}
+      onChange={(e) => setM(e.target.value)} // Update message state as user types
+      placeholder="Type a message"
+      className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    <button
+      onClick={handleSend}
+      className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+    >
+      Send
+    </button>
+  </div>
+    )}
+   </>
   );
 };
 

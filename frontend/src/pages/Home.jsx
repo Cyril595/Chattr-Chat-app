@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
 import Messagebox from '../components/messagebox';
 import Sendmessage from '../components/Sendmessage';
-import Logout from '../components/logout';
-
+import { useAuthContext } from '../context/AuthContext';
 const Home = () => {
+  const { setAuthUser } = useAuthContext();
+  useEffect(()=>{
+const user=JSON.parse(localStorage.getItem('authuser'));
+setAuthUser(user);
+  },[])
   return (
     <div className="h-screen flex items-center justify-center bg-gray-100">
       {/* Centralized container with fixed width */}
@@ -16,7 +20,7 @@ const Home = () => {
         <div className="flex-1 p-4 flex flex-col">
           <Messagebox /> {/* Fixed size message box with scrollable content */}
           <Sendmessage /> {/* Only visible when a conversation is selected */}
-          <Logout />
+      
         </div>
       </div>
     </div>
