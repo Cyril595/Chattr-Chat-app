@@ -45,14 +45,7 @@ io.on("connection", (socket) => {
     console.log(`${userId} disconnected from socket ${socket.id}`);
   });
 
-  // Example event: broadcast message to all tabs of a user
-  socket.on("sendMessageToUser", ({ receiverId, message }) => {
-    const receiverSocketIds = userSocketMap[receiverId] || [];
-    receiverSocketIds.forEach(socketId => {
-      io.to(socketId).emit("newMessage", message);
-    });
-  });
-   // Handle sending message to a group
+  
    
 });
 
